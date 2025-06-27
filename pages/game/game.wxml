@@ -1,0 +1,44 @@
+<view class="container">
+  <!-- 游戏状态显示 -->
+  <view class="status-bar">
+    <text>{{gameStatus === 'waiting' ? '准备开始' : gameStatus === 'dealing' ? '发牌中' : '游戏中'}}</text>
+  </view>
+
+  <!-- 地主牌区域 -->
+  <view class="landlord-cards" wx:if="{{landlordCards.length > 0}}">
+    <text class="section-title">地主牌</text>
+    <view class="cards-row">
+      <block wx:for="{{landlordCards}}" wx:key="index">
+        <card type="{{item.type}}" value="{{item.value}}" disabled="{{true}}" />
+      </block>
+    </view>
+  </view>
+
+  <!-- 玩家手牌 -->
+  <view class="player-cards">
+    <text class="section-title">你的手牌</text>
+    <view class="cards-row">
+      <block wx:for="{{cards}}" wx:key="index">
+        <card 
+          type="{{item.type}}" 
+          value="{{item.value}}" 
+          data-cards="{{[item]}}"
+          bindtap="playCards"
+        />
+      </block>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="action-buttons">
+    <button 
+      wx:if="{{gameStatus === 'dealing'}}" 
+      type="primary" 
+      bindtap="startGame"
+    >开始游戏</button>
+    <button 
+      wx:if="{{gameStatus === 'playing'}}" 
+      type="warn"
+    >不出</button>
+  </view>
+</view>

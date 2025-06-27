@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "游戏大厅",
+    "usingComponents": {
+        "card": "../../components/card/card"
+    }
+}

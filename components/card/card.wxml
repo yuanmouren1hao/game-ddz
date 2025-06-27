@@ -1,0 +1,32 @@
+<view 
+  class="card {{type}} {{disabled ? 'disabled' : ''}}" 
+  bindtap="onTap"
+>
+  <view class="card-corner top-left">
+    <text class="card-value">{{value}}</text>
+    <text class="card-suit">{{getSuitSymbol(type)}}</text>
+  </view>
+  <view class="card-center">
+    <text class="card-suit large">{{getSuitSymbol(type)}}</text>
+  </view>
+  <view class="card-corner bottom-right">
+    <text class="card-value">{{value}}</text>
+    <text class="card-suit">{{getSuitSymbol(type)}}</text>
+  </view>
+</view>
+
+<wxs module="tools">
+function getSuitSymbol(type) {
+  var suits = {
+    'heart': '♥',
+    'diamond': '♦',
+    'club': '♣',
+    'spade': '♠',
+    'joker': '★'
+  };
+  return suits[type] || '';
+}
+module.exports = {
+  getSuitSymbol: getSuitSymbol
+};
+</wxs>
