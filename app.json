@@ -1,0 +1,14 @@
+{
+    "pages": [
+        "pages/game/game"
+    ],
+    "window": {
+        "navigationBarTitleText": "欢乐斗地主",
+        "navigationBarBackgroundColor": "#1AAD19",
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#f8f8f8"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json",
+    "useExtendedLibs": true
+}

@@ -1,0 +1,33 @@
+/* 颜色定义 */
+:root {
+  --primary-color: #1AAD19;
+  --secondary-color: #FFCC33;
+  --background-color: #F8F8F8;
+  --text-color: #333;
+}
+
+/* 基础样式 */
+page {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  height: 100%;
+}
+
+/* 按钮样式 */
+.button {
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 4px;
+  padding: 10px 15px;
+  text-align: center;
+}
+
+/* 卡片基础样式 */
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 15px;
+}
