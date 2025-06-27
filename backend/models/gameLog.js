@@ -10,10 +10,28 @@ const gameLogSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    gameType: {
+        type: String,
+        required: true,
+        enum: ['ddz', 'other'],
+        default: 'ddz'
+    },
     action: {
         type: String,
         required: true,
-        enum: ['start', 'play', 'end']
+        enum: ['start', 'play', 'end', 'result']
+    },
+    score: {
+        type: Number,
+        required: function () {
+            return this.action === 'result';
+        }
+    },
+    duration: {
+        type: Number, // 单位：秒
+        required: function () {
+            return this.action === 'result';
+        }
     },
     details: {
         type: Object,

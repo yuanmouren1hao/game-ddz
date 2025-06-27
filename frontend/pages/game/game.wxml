@@ -1,4 +1,17 @@
 <view class="container">
+    <!-- 登录弹窗 -->
+    <view wx:if="{{showLogin}}" class="login-modal">
+        <view class="login-content">
+            <view class="login-title">请先登录</view>
+            <view class="login-desc">登录后可保存游戏记录和排名</view>
+            <button 
+                class="login-btn" 
+                open-type="getUserProfile" 
+                bindtap="handleLogin">
+                微信登录
+            </button>
+        </view>
+    </view>
   <!-- 游戏状态显示 -->
   <view class="status-bar">
     <text>{{gameStatus === 'waiting' ? '准备开始' : gameStatus === 'dealing' ? '发牌中' : '游戏中'}}</text>

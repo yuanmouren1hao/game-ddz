@@ -18,4 +18,13 @@ router.post('/rooms/:roomId/start', authMiddleware, gameController.startGame);
 // 出牌操作
 router.post('/rooms/:roomId/play', authMiddleware, gameController.playCards);
 
+// 保存游戏记录
+router.post('/records', authMiddleware, gameController.saveGameResult);
+
+// 获取用户游戏记录
+router.get('/users/:userId/records', authMiddleware, gameController.getGameRecords);
+
+// 获取游戏排行榜
+router.get('/leaderboard', authMiddleware, gameController.getLeaderboard);
+
 module.exports = router;

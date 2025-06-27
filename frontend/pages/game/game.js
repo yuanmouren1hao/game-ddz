@@ -9,10 +9,16 @@ Page({
         landlordCards: [], // 地主牌
         gameStatus: 'waiting', // waiting, dealing, playing, ended
         currentPlayer: 'player', // player, left, right
-        audioEnabled: true // 音效开关
+        audioEnabled: true, // 音效开关
+        showLogin: false // 是否显示登录弹窗
     },
 
     onLoad() {
+        const app = getApp();
+        // 检查登录状态
+        if (!app.globalData.isLogin) {
+            this.setData({ showLogin: true });
+        }
         this.initGame();
     },
 
@@ -494,5 +500,23 @@ Page({
                 src: sounds[type]
             });
         }
+    },
+
+    // 处理用户登录
+    handleLogin() {
+        const app = getApp();
+        app.login().then(userInfo => {
+            this.setData({ showLogin: false });
+            wx.showToast({
+                title: '登录成功',
+                icon: 'success'
+            });
+        }).catch(err => {
+            console.error('登录失败:', err);
+            wx.showToast({
+                title: '登录失败',
+                icon: 'none'
+            });
+        });
     }
 });
